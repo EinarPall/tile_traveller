@@ -2,7 +2,9 @@
 
 ## map 3x3
 
-def movement(movemnt_str, x, y):
+def movement(movemnt_str):
+    loc_x = 1
+    loc_y = 1
     if movemnt_str == 'n':
         loc_y += 1
     elif movemnt_str == 's':
@@ -21,34 +23,39 @@ Tile1_3 = '(E)ast or (S)outh.'
 Tile2_1 = '(N)orth.'
 Tile2_2 = '(S)outh or (W)est'
 Tile2_3 = '(E)ast or (W)est'
-Tile3_2 = '(N)orth or (S)outh.
+Tile3_2 = '(N)orth or (S)outh.'
 Tile3_3 = '(S)outh or (W)est'
 
-
-## beginning
 loc_x, loc_y = 1,1
-move = input("Direction: ").lower()
-current_loc = Tile1_1
+move = input("Direction: ")
 
+eysteinn = 'hóra'
+## beginning
+while eysteinn == 'hóra':
+    current_loc = Tile1_1
+    u = movement(move)
+    loc_x = u[0]
+    loc_y = u[1]
 
-## Tiles location
-if loc_x == 1 and loc_y == 1:
-    print(Tile1_1)
-elif loc_x == 1 and loc_y == 2:
-    print(Tile1_2)
-elif loc_x == 1 and loc_y == 3:
-    print(Tile1_3)
-elif loc_x == 2 and loc_y == 1:
-    print(Tile2_1)
-elif loc_x == 2 and loc_y == 2:
-    print(Tile2_2)
-elif loc_x == 2 and loc_y == 3:
-    print(Tile2_3)
-elif loc_x == 3 and loc_y == 2:
-    print(Tile3_2)
-elif loc_x == 3 and loc_y == 3:
-    print(Tile3_3)
+    print(loc_x,loc_y)
 
-
+    ## Tiles location
+    if loc_x == 1 and loc_y == 1:
+        print(Tile1_1)
+    elif loc_x == 1 and loc_y == 2:
+        print(Tile1_2)
+    elif loc_x == 1 and loc_y == 3:
+        print(Tile1_3)
+    elif loc_x == 2 and loc_y == 1:
+        print(Tile2_1)
+    elif loc_x == 2 and loc_y == 2:
+        print(Tile2_2)
+    elif loc_x == 2 and loc_y == 3:
+        print(Tile2_3)
+    elif loc_x == 3 and loc_y == 2:
+        print(Tile3_2)
+    elif loc_x == 3 and loc_y == 3:
+        print(Tile3_3)
+    move = input("Direction: ")
 
 
