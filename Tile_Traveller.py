@@ -3,13 +3,13 @@
 ## map 3x3
 
 def movement(movemnt_str, x, y):
-    if movemnt_str == 'n':
+    if movemnt_str == 'n' and 'N' in current_loc:
         y += 1
-    elif movemnt_str == 's':
+    elif movemnt_str == 's' and 'S' in current_loc:
         y -= 1
-    elif movemnt_str == 'w':
+    elif movemnt_str == 'w' and 'W' in current_loc:
         x -= 1
-    elif movemnt_str == 'e':
+    elif movemnt_str == 'e'and 'E' in current_loc:
         x += 1
     return x, y
 
@@ -28,11 +28,10 @@ Tile3_3 = '(S)outh or (W)est'
 loc_x, loc_y = 1,1
 print(Tile1_1)
 move = input("Direction: ").lower()
-
+current_loc = Tile1_1
 eysteinn = 'news'
 ## beginning
 while move in eysteinn:
-    current_loc = Tile1_1
     u = movement(move, loc_x, loc_y)
     loc_x = u[0]
     loc_y = u[1]
@@ -67,10 +66,15 @@ while move in eysteinn:
     elif loc_x == 3 and loc_y == 1:
         print(Tile3_1)
         break
-
+    else: 
+        print("Not a valid direction!")
+        # loc_y = int(current_loc[:-1]) 
+        # loc_x = int(current_loc[:-3])
+        
     move = input("Direction: ")
 else:
     print("Not a valid direction!")
     #print(current_loc)
     move = input("Direction: ")
+
 
